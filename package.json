@@ -20,5 +20,8 @@
   "engines": {
     "node": "9.4.0",
     "npm": "5.8.0"
+  },
+  "dependencies": {
+    "discord.js": "git+https://github.com/discordjs/discord.js.git"
   }
 }
