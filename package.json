@@ -1,0 +1,24 @@
+{
+  "name": "bacon-bot",
+  "version": "1.0.0",
+  "description": "bacon-bot",
+  "main": "bacon-bot.js",
+  "scripts": {
+    "start": "node bacon-bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MadCow234/bacon-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MadCow234/bacon-bot/issues"
+  },
+  "homepage": "https://github.com/MadCow234/bacon-bot#readme",
+  "engines": {
+    "node": "9.4.0",
+    "npm": "5.8.0"
+  }
+}
