@@ -1,24 +1,29 @@
 // Create a Discord client
 const Discord = require("discord.js");
-const winston = require("winston");
+const Winston = require("winston");
+
+if (process.env.NODE_ENV !== 'production') {
+      require('dotenv').load();
+}
  
 if (process.env.NODE_ENV === 'production') {
-    const log = winston.createLogger({
+    var log = new(Winston.Logger)({
         transports: [
-            new winston.transports.Console({ format: winston.format.simple() })
+            new Winston.transports.Console()
         ]
-    })
+    });
 } else if (process.env.NODE_ENV === "development") {
-    const log = winston.createLogger({
+    var log = new(Winston.Logger)({
         transports: [
-            new winston.transports.File({ filename: 'bacon-bot.log' })
+            new Winston.transports.File({ filename: 'bacon-bot.log' })
         ]
-    })
+    });
 }
 
 const client = new Discord.Client();
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
+log.info(BOT_TOKEN)
 
-client.login(BOT_TOKEN);
-log.info("I'm logged in");
+client.login(BOT_TOKEN).catch(error => console.log(error));
+// log.info("I'm logged in");

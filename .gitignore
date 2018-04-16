@@ -29,3 +29,6 @@ node_modules
 
 # VS Code
 .vscode
+
+# Local .env files
+.env
