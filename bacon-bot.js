@@ -1,5 +1,5 @@
 // Create a Discord client
-const Discord = require("discord.js").Client();
+const Discord = require("discord.js");
 const client = new Discord.Client();
 
 if (process.env.NODE_ENV !== 'production') {
