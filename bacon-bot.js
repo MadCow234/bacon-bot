@@ -12,6 +12,7 @@ if (process.env.NODE_ENV === 'production') {
             new Winston.transports.Console()
         ]
     });
+    log.cli();
 } else if (process.env.NODE_ENV === "development") {
     var log = new(Winston.Logger)({
         transports: [
