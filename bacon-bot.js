@@ -2,10 +2,12 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+// Load a local .env file if in development
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').load();
 }
 
+// Setup logging
 const Winston = require("winston");
 if (process.env.NODE_ENV === 'production') {
     // Log to console in production because Heroku will add STDOUT to the log stream
