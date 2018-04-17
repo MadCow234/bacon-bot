@@ -1,6 +1,6 @@
 // Create a Discord client
-const Discord = require("discord.js");
-const client = new Discord.Client();
+import { Client } from "discord.js";
+const client = new Client();
 
 // Load a local .env file if in development
 if (process.env.NODE_ENV !== 'production') {
@@ -8,12 +8,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Setup logging
-const Winston = require("winston");
+import { Logger, transports as _transports } from "winston";
 if (process.env.NODE_ENV === 'production') {
     // Log to console in production because Heroku will add STDOUT to the log stream
-    var log = new(Winston.Logger)({
+    var log = new(Logger)({
         transports: [
-            new Winston.transports.Console()
+            new _transports.Console()
         ]
     });
 
@@ -22,9 +22,9 @@ if (process.env.NODE_ENV === 'production') {
 
 } else if (process.env.NODE_ENV === "development") {
     // Log to a file in development
-    var log = new(Winston.Logger)({
+    var log = new(Logger)({
         transports: [
-            new Winston.transports.File({ filename: 'bacon-bot.log' })
+            new _transports.File({ filename: 'bacon-bot.log' })
         ]
     });
 }
