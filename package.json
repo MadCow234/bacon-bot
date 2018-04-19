@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./dist/bacon-bot.js",
     "build": "babel . -d ./dist --ignore node_modules",
-    "heroku-prebuild": "babel . -d dist --ignore node_modules"
+    "dev": "del-cli dist && npm run build && npm run start",
+    "heroku-prebuild": "babel . -d ./dist --ignore node_modules"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
+    "del-cli": "^1.1.0",
     "mocha": "^5.1.0"
   }
 }

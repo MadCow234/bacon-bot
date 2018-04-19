@@ -15,5 +15,5 @@ const BOT_TOKEN = process.env.BOT_TOKEN;
 
 client.login(BOT_TOKEN).catch(error => 
     console.log(error)).then(
-        log.info("I'm logged in 2")
+        log.info("I'm logged in")
     );
