@@ -13,9 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/MadCow234/bacon-bot.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["Discord", "bot"],
+  "author": "MadCow234",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/MadCow234/bacon-bot/issues"
   },
