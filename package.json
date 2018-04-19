@@ -7,7 +7,7 @@
     "start": "node ./dist/bacon-bot.js",
     "build": "babel . -d ./dist --ignore node_modules",
     "dev": "del-cli dist && npm run build && npm run start",
-    "heroku-prebuild": "npm run build"
+    "heroku-prebuild": "babel . -d ./dist --ignore node_modules"
   },
   "repository": {
     "type": "git",
