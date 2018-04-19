@@ -5,7 +5,8 @@
   "main": "bacon-bot.js",
   "scripts": {
     "start": "node ./dist/bacon-bot.js",
-    "build": "babel . -d dist --ignore node_modules"
+    "build": "babel . -d dist --ignore node_modules",
+    "heroku-prebuild": "babel . -d dist --ignore node_modules"
   },
   "repository": {
     "type": "git",
