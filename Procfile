@@ -1,1 +1,1 @@
-worker node bacon-bot.js
+worker npm start
