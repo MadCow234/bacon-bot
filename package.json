@@ -4,7 +4,8 @@
   "description": "bacon-bot",
   "main": "bacon-bot.js",
   "scripts": {
-    "start": "node bacon-bot.js"
+    "start": "node ./dist/bacon-bot.js",
+    "build": "babel . -d dist --ignore node_modules"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,8 @@
     "winston": "^2.4.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
     "mocha": "^5.1.0"
   }
