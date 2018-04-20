@@ -6,7 +6,7 @@ var client = new Discord.Client();
 
 // Load a local .env file if in development
 if (process.env.NODE_ENV !== 'production') {
-    require("dotenv").load();
+    require("dotenv").load({path: "./src/conf/.env"});
 }
 
 // Setup logger
