@@ -1,5 +1,5 @@
 import * as Discord from "discord.js";
-import * as LoggingConfig from "./src/conf/logging.js";
+import * as LoggingConfig from "./conf/logging.js";
 
 // Create a Discord client
 var client = new Discord.Client();

@@ -4,7 +4,7 @@
   "description": "bacon-bot",
   "main": "bacon-bot.js",
   "scripts": {
-    "start": "node ./dist/bacon-bot.js",
+    "start": "node ./dist/src/bacon-bot.js",
     "build": "babel . -d ./dist --ignore node_modules",
     "dev": "del-cli dist && npm run build && npm run start",
     "heroku-prebuild": "npm run build"
