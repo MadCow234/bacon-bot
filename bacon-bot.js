@@ -1,19 +1,19 @@
+import * as Discord from "discord.js";
+import * as DotEnv from "dotenv";
+import * as LoggingConfig from "./src/conf/logging.js";
+
 // Create a Discord client
-import { Client } from "discord.js";
-const client = new Client();
+var client = new Discord.Client();
 
 // Load a local .env file if in development
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    DotEnv.load();
 }
 
 // Setup logger
-import { getLogger } from "./conf/logging-config.js";
-const log = getLogger();
+const log = LoggingConfig.getLogger();
 
+// Get the bot's access token
 const BOT_TOKEN = process.env.BOT_TOKEN;
 
-client.login(BOT_TOKEN).catch(error => 
-    console.log(error)).then(
-        log.info("I'm logged in")
-    );
+client.login(BOT_TOKEN).then(token => log.info(`${client.user.username} is logged in.`)).catch(error => console.log(error));

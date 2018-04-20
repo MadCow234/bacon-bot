@@ -1,11 +1,11 @@
+import { Logger, transports } from "winston";
+
 export function getLogger() {
-    // Setup logging
-    const Winston = require("winston");
     if (process.env.NODE_ENV === 'production') {
         // Log to console in production because Heroku will add STDOUT to the log stream
-        var logger = new (Winston.Logger)({
+        var logger = new Logger({
             transports: [
-                new Winston.transports.Console()
+                new transports.Console()
             ]
         });
         // Configure CLI output
@@ -13,9 +13,9 @@ export function getLogger() {
     }
     else if (process.env.NODE_ENV === "development") {
         // Log to a file in development        
-        var logger = new (Winston.Logger)({
+        var logger = new Logger({
             transports: [
-                new Winston.transports.File({ filename: 'bacon-bot.log' })
+                new transports.File({ filename: 'bacon-bot.log' })
             ]
         });
     }
