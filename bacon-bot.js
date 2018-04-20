@@ -1,5 +1,4 @@
 import * as Discord from "discord.js";
-import * as DotEnv from "dotenv";
 import * as LoggingConfig from "./src/conf/logging.js";
 
 // Create a Discord client
@@ -7,7 +6,7 @@ var client = new Discord.Client();
 
 // Load a local .env file if in development
 if (process.env.NODE_ENV !== 'production') {
-    DotEnv.load();
+    require("dotenv").load();
 }
 
 // Setup logger
