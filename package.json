@@ -4,9 +4,12 @@
   "description": "bacon-bot",
   "main": "bacon-bot.js",
   "scripts": {
-    "start": "node ./dist/src/bacon-bot.js",
-    "build": "babel . -d ./dist --ignore node_modules",
-    "dev": "del-cli dist && npm run build && npm run start",
+    "test": "mocha",
+    "build": "babel ./src -d ./dist",
+    "start": "node ./dist/bacon-bot.js",
+    "clean-logs": "del-cli logs",
+    "dev-build": "del-cli dist && npm run build",
+    "dev-start": "del-cli dist && npm run build && npm run start",
     "heroku-prebuild": "npm run build"
   },
   "repository": {
