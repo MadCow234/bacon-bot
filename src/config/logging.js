@@ -40,7 +40,9 @@ function setLogger() {
 function setConsoleLogger() {
     winston.configure({
         transports: [
-            new winston.transports.Console(),
+            new winston.transports.Console({
+                name: 'console'
+            }),
         ]
     });
     winston.cli();
@@ -49,7 +51,10 @@ function setConsoleLogger() {
 function setFileLogger(directoryName, filename) {
     winston.configure({
         transports: [
-            new winston.transports.File({ filename: `./${directoryName}/${filename}` })
+            new winston.transports.File({
+                name: 'file', 
+                filename: `./${directoryName}/${filename}` 
+            })
         ]
     });
 }
