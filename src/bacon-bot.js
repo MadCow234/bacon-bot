@@ -1,5 +1,6 @@
 import * as Discord from "discord.js";
 import * as LoggingConfig from "./conf/logging.js";
+import * as Datasource from "./conf/datasource.js";
 
 // Create a Discord client
 var client = new Discord.Client();
@@ -11,6 +12,17 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Setup logger
 const log = LoggingConfig.getLogger();
+
+// Initialize the datasource
+const sequelize = Datasource.initDatasource();
+sequelize
+  .authenticate()
+  .then(() => {
+    log.info('Connection has been established successfully.');
+  })
+  .catch(err => {
+    log.info('Unable to connect to the database:', err);
+  });
 
 // Get the bot's access token
 const BOT_TOKEN = process.env.BOT_TOKEN;
