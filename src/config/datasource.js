@@ -1,9 +1,14 @@
-export function initDatasource() {
+import * as log from 'winston';
+
+function initDatasource() {
 
     const Sequelize = require('sequelize');
 
-    if (process.env.NODE_ENV === 'production') {
-        const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    const nodeEnv = process.env.NODE_ENV;
+    const databaseURL = process.env.DATABASE_URL;
+
+    if (nodeEnv === 'production') {
+        const sequelize = new Sequelize(databaseURL, {
             dialect: 'postgres',
             protocol: 'postgres',
             operatorsAliases: false,
@@ -18,15 +23,19 @@ export function initDatasource() {
             }
         });
 
+        log.info(`Set datasource for ${nodeEnv}`);
         return sequelize;
 
-    } else if (process.env.NODE_ENV === 'development') {
-        const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    } else if (nodeEnv === 'development') {
+        const sequelize = new Sequelize(databaseURL, {
             dialect: 'postgres',
             protocol: 'postgres',
             operatorsAliases: false
         });
 
+        log.info(`Set datasource for ${nodeEnv}`);
         return sequelize;
     }
 }
+
+export { initDatasource };

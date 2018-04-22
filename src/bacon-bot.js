@@ -1,6 +1,7 @@
+import * as log from 'winston';
 import * as Discord from "discord.js";
-import * as LoggingConfig from "./config/logging.js";
-import * as Datasource from "./config/datasource.js";
+import { setLogger } from "./config/logging.js";
+import { initDatasource } from "./config/datasource.js";
 
 // Create a Discord client
 var client = new Discord.Client();
@@ -11,11 +12,11 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Setup logger
-const log = LoggingConfig.getLogger();
+setLogger();
 
 // Initialize the datasource
-const sequelize = Datasource.initDatasource();
-sequelize
+const datasource = initDatasource();
+datasource
   .authenticate()
   .then(() => {
     log.info('Connection has been established successfully.');
