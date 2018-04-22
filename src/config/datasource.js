@@ -23,7 +23,7 @@ function initDatasource() {
             }
         });
 
-        log.info(`Set datasource for ${nodeEnv}`);
+        log.info(`Initialized datasource for ${nodeEnv}`);
         return sequelize;
 
     } else if (nodeEnv === 'development') {
@@ -33,8 +33,11 @@ function initDatasource() {
             operatorsAliases: false
         });
 
-        log.info(`Set datasource for ${nodeEnv}`);
+        log.info(`Initialized datasource for ${nodeEnv}`);
         return sequelize;
+
+    } else if (nodeEnv === 'test') {
+        log.info(`Datasource NOT initialized. Reason: NODE_ENV = ${nodeEnv}; database not needed.`);
     }
 }
 

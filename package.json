@@ -4,7 +4,7 @@
   "description": "bacon-bot",
   "main": "bacon-bot.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --opts ./mocha.opts",
     "build": "babel ./src -d ./dist",
     "start": "node ./dist/bacon-bot.js",
     "dev-clean": "del-cli logs",

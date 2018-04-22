@@ -1,7 +1,7 @@
 import * as winston from "winston";
 import * as fs from "fs";
 
-function setLogger() {
+function initLogger() {
 
     const nodeEnv = process.env.NODE_ENV;
 
@@ -25,7 +25,7 @@ function setLogger() {
             }
         }
 
-        var filename = nodeEnv === 'test' ? 'bacon-bot_test.log' : 'bacon-bot.log';
+        var filename = nodeEnv === 'test' ? 'bacon-bot.test.log' : 'bacon-bot.log';
 
         // As long as a /logs directory exists, return a file logger
         setFileLogger('logs', `${filename}`);
@@ -59,4 +59,4 @@ function setFileLogger(directoryName, filename) {
     });
 }
 
-export { setLogger };
+export { initLogger };

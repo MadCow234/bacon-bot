@@ -1,6 +1,6 @@
 import * as log from 'winston';
 import * as Discord from "discord.js";
-import { setLogger } from "./config/logging.js";
+import { initLogger } from "./config/logging.js";
 import { initDatasource } from "./config/datasource.js";
 
 // Create a Discord client
@@ -12,7 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Setup logger
-setLogger();
+initLogger();
 
 // Initialize the datasource
 const datasource = initDatasource();
