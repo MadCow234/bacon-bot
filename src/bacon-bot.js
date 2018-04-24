@@ -1,6 +1,7 @@
 import * as log from 'winston';
 import * as Discord from 'discord.js';
 import { initLogger } from './config/logging';
+import * as db from './database/models';
 
 // Create a Discord client
 var client = new Discord.Client();
@@ -16,4 +17,10 @@ initLogger();
 // Get the bot's access token
 const BOT_TOKEN = process.env.BOT_TOKEN;
 
-client.login(BOT_TOKEN).then(token => log.info(`${client.user.username} is logged in.`)).catch(error => console.log(error));
+db.sequelize.sync()
+    .then(()=> 
+        client.login(BOT_TOKEN)
+            .then(token => 
+                log.info(`${client.user.username} is logged in.`))
+            .catch(error => 
+                console.log(error)));
