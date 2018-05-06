@@ -41,10 +41,9 @@ function setConsoleLogger() {
         transports: [
             new winston.transports.Console({
                 name: 'console',
-                json: false,
                 colorize: true,
                 timestamp: function () {
-                    return new Date().toLocaleString();
+                    return new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
                 }
             }),
         ]
@@ -58,7 +57,7 @@ function setFileLogger(directoryName, filename) {
                 name: 'file', 
                 filename: `./${directoryName}/${filename}`,
                 timestamp: function () {
-                    return new Date().toLocaleString();
+                    return new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' });
                 }
             })
         ]
