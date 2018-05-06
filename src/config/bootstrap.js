@@ -16,13 +16,17 @@ export async function init() {
     await initLogger();
 
     // Get the bot's access token
-    const BOT_TOKEN = process.env.BOT_TOKEN;
+    const BOT_TOKEN = await process.env.BOT_TOKEN;
 
-    db.sequelize.sync()
-        .then(()=> 
-            client.login(BOT_TOKEN)
-                .then(token => 
-                    log.info(`${client.user.username} is logged in.`))
-                .catch(error => 
-                    console.log(error)));
+    try {
+        // Initialize the database and synchronize the ORM
+        await db.sequelize.sync();
+
+        // Tell the bot to log in
+        await client.login(BOT_TOKEN)
+
+    } catch (error) {
+        console.error(`NOT LOGGED IN: '${error}'`);
+        process.exit();
+    }
 }
