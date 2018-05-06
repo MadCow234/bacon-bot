@@ -31,7 +31,9 @@
     "npm": "6.0.0"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "del-cli": "^1.1.0",
     "discord.js": "git+https://github.com/discordjs/discord.js.git",
     "pg": "^7.4.1",
@@ -40,8 +42,6 @@
     "winston": "^2.4.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
     "dotenv": "^5.0.1",
     "mocha": "^5.1.0",
