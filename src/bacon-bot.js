@@ -1,4 +1,4 @@
-import { init } from "./config/bootstrap";
+import { initApplication } from "./config/bootstrap";
 
 // Initialize the application
-init();
+initApplication();
