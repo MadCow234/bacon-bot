@@ -1,16 +1,16 @@
 'use strict';
 
-module.exports = (sequelize, DataTypes) => {  
-  var User = sequelize.define('User', {
-    username: { type: DataTypes.STRING, unique: true },
+module.exports = (sequelize, DataTypes) => {
+  var user = sequelize.define('user', {
+    username: DataTypes.STRING,
     discord_id: DataTypes.STRING,
     points: DataTypes.INTEGER
   }, {});
 
-  User.associate = function(models) {
+  user.associate = function(models) {
     // associations can be defined here
-    User.hasMany(models.Strikes);
+    user.hasMany(models.strike);
   };
-
-  return User;
+  
+  return user;
 };

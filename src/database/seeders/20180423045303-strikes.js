@@ -3,21 +3,21 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     var db = require('../models');
-    return db.User.findOne( { where: { username: 'demo-user' } } )
+    return db.user.findOne( { where: { username: 'demo-user' } } )
       .then( user => 
-        queryInterface.bulkInsert('Strikes', 
+        queryInterface.bulkInsert('strikes', 
           [
             {
               user_id: user.id,
               reason: "demo strike",
-              createdAt: new Date(),
-              updatedAt: new Date()
+              created_at: new Date(),
+              updated_at: new Date()
             },
             {
               user_id: user.id,
               reason: "demo strike 2",
-              createdAt: new Date(),
-              updatedAt: new Date()
+              created_at: new Date(),
+              updated_at: new Date()
             }
           ], 
           {})
@@ -25,6 +25,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Strikes', null, {});
+    return queryInterface.bulkDelete('strikes', null, {});
   }  
 };

@@ -2,37 +2,34 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Strikes', {
+    return queryInterface.createTable('users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
-        allowNull: false,
-        references: {
-          model: 'Users',
-          key: 'id'
-        }
+      username: {
+        type: Sequelize.STRING
       },
-      reason: {
-        type: Sequelize.TEXT
+      discord_id: {
+        type: Sequelize.STRING
       },
-      createdAt: {
+      points: {
+        type: Sequelize.INTEGER
+      },
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
-  
+
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Strikes');
+    return queryInterface.dropTable('users');
   }
 };

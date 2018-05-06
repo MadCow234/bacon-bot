@@ -3,23 +3,30 @@ if (process.env.NODE_ENV !== 'production') {
     require("dotenv").load({path: "./src/config/.env"});
 }
 
+var options = {
+  underscored: true
+}
+
 module.exports = {
   "development": {
     "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "define": options
   },
   "test": {
     "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
-    "operatorsAliases": false
+    "operatorsAliases": false,
+    "define": options
   },
   "production": {
     "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
-    "operatorsAliases": false,
     "dialectOptions": {
       "ssl": true
-    }
+    },
+    "operatorsAliases": false,
+    "define": options
   }
 }
