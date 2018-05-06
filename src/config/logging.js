@@ -41,13 +41,14 @@ function setConsoleLogger() {
         transports: [
             new winston.transports.Console({
                 name: 'console',
+                json: false,
+                colorize: true,
                 timestamp: function () {
                     return new Date().toLocaleString();
                 }
             }),
         ]
     });
-    winston.cli();
 }
 
 function setFileLogger(directoryName, filename) {
