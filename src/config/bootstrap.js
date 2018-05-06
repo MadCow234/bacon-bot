@@ -30,6 +30,7 @@ export async function initApplication() {
         await client.login(BOT_TOKEN)
 
     } catch (error) {
+        // If any error is thrown during initialization, log the error to the console and exit 
         console.error(`NOT LOGGED IN: '${error}'`);
         process.exit();
     }
