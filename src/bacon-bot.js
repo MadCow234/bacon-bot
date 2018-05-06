@@ -1,7 +1,7 @@
-import * as log from 'winston';
-import * as Discord from 'discord.js';
 import { initLogger } from './config/logging';
-import * as db from './database/models';
+import log            from 'winston';
+import db             from './database/models';
+import Discord        from 'discord.js';
 
 // Create a Discord client
 var client = new Discord.Client();

@@ -1,8 +1,7 @@
-import * as winston from "winston";
-import * as fs from "fs";
+import winston from "winston";
+import fs      from "fs";
 
-function initLogger() {
-
+export function initLogger() {
     const nodeEnv = process.env.NODE_ENV;
 
     if (nodeEnv === 'production') {
@@ -58,5 +57,3 @@ function setFileLogger(directoryName, filename) {
         ]
     });
 }
-
-export { initLogger };
